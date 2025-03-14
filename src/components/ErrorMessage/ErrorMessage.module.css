@@ -1,0 +1,11 @@
+.error {
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .errorText {
+    color: #e53e3e;
+    font-size: 18px;
+    font-weight: 500;
+  }

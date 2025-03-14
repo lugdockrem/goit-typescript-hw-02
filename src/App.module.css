@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  grid-gap: 16px;
+  padding-bottom: 24px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.loader {
+  margin-top: 20px;
+}
+
+.initialLoader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 0;
+}
