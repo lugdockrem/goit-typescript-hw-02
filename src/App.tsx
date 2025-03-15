@@ -30,24 +30,13 @@ function App() {
         setError(null);
         
         const data = await searchImages(query, page);
-        const formattedImages: Image[] = data.results.map(image => ({
-          id: image.id,
-          webformatURL: image.urls.regular,
-          largeImageURL: image.urls.full,
-          tags: image.alt_description || 'image',
-          author: image.user.name,
-          description: image.description || image.alt_description || 'No description available',
-          likes: image.likes,
-          downloads: image.downloads,
-          location: image.location?.name
-        }));
-
-        setImages(prevImages => 
-          page === 1 ? formattedImages : [...prevImages, ...formattedImages]
-        );
-        setTotalPages(data.total_pages);
         
-        if (formattedImages.length === 0) {
+        setImages(prevImages => 
+          page === 1 ? data.images : [...prevImages, ...data.images]
+        );
+        setTotalPages(data.totalPages);
+        
+        if (data.images.length === 0) {
           toast.error('No images found for your query');
         } else if (page === 1) {
           toast.success(`Found ${data.total} images`);
